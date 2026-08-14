@@ -1,7 +1,13 @@
 const { Timestamp } = require("mongodb");
 const mongoose = require("mongoose");
 
-const contactSchema = mongoose.Schema({
+const contactSchema = mongoose.Schema(
+    { 
+        user_id:{
+                 type: mongoose.Schema.Types.ObjectId,
+                 require: true,
+                 ref:"User",
+        },
     name:{type:String, required:[true,"Please Add the Contect Name"]
     },
     email:{type:String, required:[true,"Please Add the Contect  Email Address"]
